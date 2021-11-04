@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "party.h": "c",
+        "common.h": "c",
+        "string.h": "c"
+    }
+}
