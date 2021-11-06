@@ -34,6 +34,7 @@ Party_t Vote(Voter_t voter, Party_t* partylist, int32_t numberOfParties)
         {
             voteReceived = partylist[i];
         }
+        printf("%f\n", diff[i]);
     }
     return voteReceived;
 }
