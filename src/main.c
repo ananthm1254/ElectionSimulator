@@ -4,14 +4,15 @@
 #include "common.h"
 #include "voter.h"
 #include "party.h"
+#include "issues.h"
 
 int main()
 {
-    Issue_t voterIssues[2] = {0.0, 0.0};
+    Issues_t voterIssues = IssuesInit(0,0);
 
-    Issue_t partyIssues[2][2] = {
-        {0.5, 0.5},
-        {0.25, 0.5}
+    Issues_t partyIssues[2] = {
+        IssuesInit(2,2),
+        IssuesInit(1,2)
     };
 
     Voter_t voter = Voter_Init(0, 18, voterIssues);

@@ -5,36 +5,38 @@
 #include "common.h"
 #include "voter.h"
 #include "party.h"
+#include "issues.h"
 
-Voter_t Voter_Init(int64_t tag, int32_t age, Issue_t *issues)
+Voter_t Voter_Init(int64_t tag, int32_t age, Issues_t issues)
 {
     Voter_t voter;
     
     voter.tag = tag;
     voter.age = age;
-    memcpy(voter.issues, issues, 2*sizeof(Issue_t));
+    voter.issues = issues;
     
     return voter;
 }
 
 Party_t Vote(Voter_t voter, Party_t* partylist, int32_t numberOfParties)
 {
-    Issue_t diff[numberOfParties], minScore;
+    int32_t diff[numberOfParties], minScore;
 
     Party_t voteReceived;
     
-    minScore = INFINITY;
+    minScore = 2*ISSUE_MAX_CNT;
 
     for(int i=0; i<numberOfParties; i++)
     {
-        diff[i] = ((voter.issues[0]-partylist[i].issues[0])*(voter.issues[0]-partylist[i].issues[0]))
-                + ((voter.issues[1]-partylist[i].issues[1])*(voter.issues[1]-partylist[i].issues[1]));
-
+        diff[i] = abs(voter.issues.economicIssues - partylist[i].issues.economicIssues) + 
+                  abs(voter.issues.socialIssues - partylist[i].issues.socialIssues);
+        
         if(diff[i]<minScore)
         {
+            minScore = diff[i];
             voteReceived = partylist[i];
         }
-        printf("%f\n", diff[i]);
+        //printf("%f\n", diff[i]);
     }
     return voteReceived;
 }
