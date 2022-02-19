@@ -1,4 +1,4 @@
-TARGET_EXEC ?= a.out
+TARGET_EXEC ?= sim_test.so
 
 BUILD_DIR ?= ./build
 SRC_DIRS ?= ./src
@@ -10,7 +10,9 @@ DEPS := $(OBJS:.o=.d)
 INC_DIRS := $(shell find $(SRC_DIRS) -type d)
 INC_FLAGS := $(addprefix -I,$(INC_DIRS))
 
-CPPFLAGS ?= $(INC_FLAGS) -MMD -MP -g
+CPPFLAGS ?= $(INC_FLAGS) -MMD -MP -g -fPIC
+
+LDFLAGS = -shared
 
 $(BUILD_DIR)/$(TARGET_EXEC): $(OBJS)
 	$(CC) $(OBJS) -o $@ $(LDFLAGS)
