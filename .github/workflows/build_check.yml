@@ -30,10 +30,20 @@ jobs:
         run: |
           make clean
           make
+  pythontests:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
 
-      # Python based tests
-      - name: Run python test
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Runs a set of commands using the runners shell
+      - name: Submodule update
+        run: git submodule --init --recursive
+
+      - name: Tests
         run: |
           cd test/test_lib
           ls -a
-          cd ../..
