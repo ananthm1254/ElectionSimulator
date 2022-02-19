@@ -7,7 +7,7 @@
 #include "party.h"
 #include "issues.h"
 
-Voter_t Voter_Init(int64_t tag, int32_t age, Issues_t issues)
+Voter_t Voter_Init(uint64_t tag, uint32_t age, Issues_t issues)
 {
     Voter_t voter;
     
@@ -18,9 +18,9 @@ Voter_t Voter_Init(int64_t tag, int32_t age, Issues_t issues)
     return voter;
 }
 
-Party_t Vote(Voter_t voter, Party_t* partylist, int32_t numberOfParties)
+Party_t Vote(uint32_t numberOfParties, Voter_t voter, Party_t* partylist)
 {
-    int32_t diff[numberOfParties], minScore;
+    uint32_t diff[numberOfParties], minScore;
 
     Party_t voteReceived;
     
