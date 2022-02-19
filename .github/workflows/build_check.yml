@@ -34,6 +34,5 @@ jobs:
       # Python based tests
       - name: Run python test
         run: |
-          cd test
-          ./run_test.sh test.py
+          cd test/test_lib
           cd ..
