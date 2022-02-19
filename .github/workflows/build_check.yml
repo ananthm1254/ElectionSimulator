@@ -35,4 +35,5 @@ jobs:
       - name: Run python test
         run: |
           cd test/test_lib
-          cd ..
+          ls -a
+          cd ../..
