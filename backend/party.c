@@ -6,7 +6,7 @@
 #include "voter.h"
 #include "party.h"
 
-Party_t Party_Init(int64_t tag, Issues_t issues)
+Party_t Party_Init(uint64_t tag, Issues_t issues)
 {
     Party_t party;
     

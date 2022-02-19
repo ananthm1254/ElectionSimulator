@@ -1,7 +1,9 @@
 TARGET_EXEC ?= sim_test.so
 
 BUILD_DIR ?= ./build
-SRC_DIRS ?= ./src
+SRC_DIRS ?= ./frontend
+SRC_DIRS += ./backend
+SRC_DIRS += ./common
 
 SRCS := $(shell find $(SRC_DIRS) -name *.cpp -or -name *.c -or -name *.s)
 OBJS := $(SRCS:%=$(BUILD_DIR)/%.o)
