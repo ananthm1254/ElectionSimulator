@@ -1,3 +1,4 @@
 [submodule "test/test_lib"]
 	path = test/test_lib
 	url = https://github.com/ananthm1254/test_lib.git
+	branch = framework/election-simulator

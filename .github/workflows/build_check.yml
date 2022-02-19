@@ -30,3 +30,10 @@ jobs:
         run: |
           make clean
           make
+
+      # Python based tests
+      - name: Run python test
+        run: |
+          cd test
+          ./run_test.sh test.py
+          cd ..
