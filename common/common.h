@@ -11,7 +11,7 @@ typedef unsigned long long uint64_t;
 #define FE_ASSERT(expr) assert(expr)
 
 
-static inline uint32_t abs(uint32_t val)
+static inline uint32_t absolute(uint32_t val)
 {
     if (val >= 0)
     {

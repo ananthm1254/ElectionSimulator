@@ -1,9 +1,7 @@
-
-typedef enum _FeTaskCmds_t{
-    FE_TASK_INIT_BE         =   0,
-    FE_TASK_INTEGRITY_CHECK =   1,
-    FE_TASK_VOTE_CMD        =   2,
-    FE_TASK_MAX_CNT       
-} FeTaskCmds_t;
+#pragma once
+#include "common.h"
+#include "fe_defs.h"
 
 void FeCmdHandler(FeTaskCmds_t entrycmd, void* inputpayload, void* outputpayload);
+
+void FeInit(uint32_t* outputpayload);

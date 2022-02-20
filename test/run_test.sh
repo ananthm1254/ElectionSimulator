@@ -2,6 +2,8 @@
 
 echo Initializing test script
 
-python3 test_lib/$1
-
-echo Successfully tested
+if python3 test_lib/$1; then
+    echo "Exit code of 0, success"
+else
+    echo "Exit code of $?, failure"
+fi

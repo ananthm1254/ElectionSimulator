@@ -28,8 +28,8 @@ Party_t Vote(uint32_t numberOfParties, Voter_t voter, Party_t* partylist)
 
     for(int i=0; i<numberOfParties; i++)
     {
-        diff[i] = abs(voter.issues.economicIssues - partylist[i].issues.economicIssues) + 
-                  abs(voter.issues.socialIssues - partylist[i].issues.socialIssues);
+        diff[i] = absolute(voter.issues.economicIssues - partylist[i].issues.economicIssues) + 
+                  absolute(voter.issues.socialIssues - partylist[i].issues.socialIssues);
         
         if(diff[i]<minScore)
         {
