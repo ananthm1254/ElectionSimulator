@@ -1,6 +1,7 @@
 #include "common.h"
 #include "voter.h"
 #include "party.h"
+#include "stdio.h"
 
 typedef struct Listing{
     uint32_t num;
@@ -21,4 +22,11 @@ void BeFeEntry(void* inputpayload, void* outputpayload)
 
     return;
 
+}
+
+void BeFeInit(Voter_t * inputpayload, Voter_t * outputpayload)
+{
+    outputpayload->tag = inputpayload->tag;
+    outputpayload->issues = inputpayload->issues;
+    outputpayload->age = inputpayload->age + 1;
 }
